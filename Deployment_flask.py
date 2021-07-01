@@ -18,7 +18,7 @@ def home():
     return render_template('index.html')
 @app.route('/predict', methods=['POST'])
 def predict():
-    features=[int(x) for x in request.form.values()]
+    features=[float(x) for x in request.form.values()]
     final_features=[np.array(features)]
     prediction=model.predict(final_features)
     pred_round=round(prediction[0])
@@ -35,14 +35,8 @@ if __name__=="__main__":
     app.run(port=5000, debug=True, use_reloader=False)
 
 
-# In[12]:
+# In[1]:
 
 
 #get_ipython().system('jupyter nbconvert Deployment_flask.ipynb --to script')
-
-
-# In[ ]:
-
-
-
 
