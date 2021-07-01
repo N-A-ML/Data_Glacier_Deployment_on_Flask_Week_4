@@ -1,0 +1,28 @@
+<html>
+<head>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+<title> My title </title>
+
+
+</head>
+
+<body>
+
+<div>
+<h1> Predict the type of iris flower (Setosa, Versicolor, or Virginica) using a K nearest neighbors classifier (k=3)</h1>
+
+<form action = "{{ url_for('predict')}}" method="post">
+	<input type="text" name="sepal_length" placeholder= "Sepal Length(cm)" required="required" /> <br> <br>
+	<input type="text" name="sepal_width" placeholder= "Sepal Width(cm)" required="required" /> <br> <br>
+	<input type="text" name="petal_length" placeholder= "Petal Length(cm)" required="required" /> <br> <br> 
+	<input type="text" name="petal_width" placeholder= "Petal Width(cm)" required="required" /> <br> <br>
+	<button type="submit"> Predict </button>
+</form>
+
+<br>
+<br>
+{{ prediction_text }}
+</div>
+
+</body>
+</html>
