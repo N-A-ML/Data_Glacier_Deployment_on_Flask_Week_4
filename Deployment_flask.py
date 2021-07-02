@@ -10,11 +10,9 @@ import joblib
 from joblib import load
 from sklearn.neighbors import KNeighborsClassifier
 import os
-prediction_text="Enter the measurements and click 'predict'!"
 images_folder=os.path.join('static', 'images')
 app=Flask(__name__)
 app.config['UPLOAD_FOLDER'] = images_folder
-
 model=load('model.joblib')
 
 @app.route('/')
@@ -44,7 +42,7 @@ if __name__=="__main__":
     app.run(port=5000, debug=True, use_reloader=False)
 
 
-# In[2]:
+# In[16]:
 
 
 #get_ipython().system('jupyter nbconvert Deployment_flask.ipynb --to script')
