@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[32]:
+# In[ ]:
 
 
 import numpy as np
@@ -9,8 +9,12 @@ from flask import Flask, request, render_template
 import joblib
 from joblib import load
 from sklearn.neighbors import KNeighborsClassifier
-
+import os
+prediction_text="Enter the measurements and click 'predict'!"
+images_folder=os.path.join('static', 'images')
 app=Flask(__name__)
+app.config['UPLOAD_FOLDER'] = images_folder
+
 model=load('model.joblib')
 
 @app.route('/')
@@ -25,18 +29,29 @@ def predict():
     output=""
     if pred_round==0:
         output+="Setosa"
+        file = os.path.join(app.config['UPLOAD_FOLDER'], 'setosa.jpg')
     elif pred_round==1:
         output+="Versicolor"
+        file = os.path.join(app.config['UPLOAD_FOLDER'], 'versicolor.jpg')
     else:
         output+="Virginica"
-        
-    return render_template('index.html', prediction_text='This iris flower is {}'.format(output))
+        file = os.path.join(app.config['UPLOAD_FOLDER'], 'virginica.jpg')
+
+    return render_template('index.html', prediction_text='This iris flower is {}'.format(output),
+                           iris=file
+                          )
 if __name__=="__main__":
     app.run(port=5000, debug=True, use_reloader=False)
 
 
-# In[1]:
+# In[2]:
 
 
 #get_ipython().system('jupyter nbconvert Deployment_flask.ipynb --to script')
+
+
+# In[ ]:
+
+
+
 
