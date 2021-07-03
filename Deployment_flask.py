@@ -2,8 +2,6 @@
 # coding: utf-8
 
 # In[ ]:
-
-
 import numpy as np
 from flask import Flask, request, render_template
 import joblib
@@ -40,7 +38,6 @@ def predict():
                           )
 if __name__=="__main__":
     app.run(port=5000, debug=True, use_reloader=False)
-
 
 # In[16]:
 

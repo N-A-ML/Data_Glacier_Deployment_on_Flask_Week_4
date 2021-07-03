@@ -3,15 +3,12 @@
 <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Playfair+Display" />
 <title> Predict the type of iris flower </title>
-
-
 </head>
 
 <body>
 <h1> Predict the type of iris flower (Setosa, Versicolor, or Virginica) using a K nearest neighbors classifier (k=3)</h1>
 <div class="wrapper">
 <div class="form">
-
 
 <form action = "{{ url_for('predict')}}" method="post">
 	<input type="text" name="sepal_length" placeholder= "Sepal Length(cm)" required="required" /> <br> <br>
@@ -22,13 +19,8 @@
 
 <br>
 <br>
-
-
 {{ prediction_text }}
 </form>
-
-
-
 
 </div>
 	<div class="image">
